@@ -1,33 +1,4 @@
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-
-typedef struct node
-{
-	int key;
-	struct node *next;
-} Node;
-
-typedef struct list
-{
-	Node *start;
-	int size;
-} List;
-
-bool initList(List *list);
-
-Node *createNode(int key);
-
-bool addListNode(List *list, int key);
-
-Node *removeListNode(List *list, int key);
-
-void endLine();
-
-void printList(List l);
-
-
-
+#include "LinkedList.h"
 
 int main(void)
 {
@@ -41,11 +12,6 @@ int main(void)
 	addListNode(&l, 20);
 	addListNode(&l, 234);
 
-
-
-	// printf("Valor: %d\n", l.start->key);
-	// printf("Valor: %d\n", l.start->next->key);
-	// printf("Valor: %d\n", l.start->next->next->key);
 	printList(l);
 
 	removeListNode(&l, 7);
@@ -56,6 +22,6 @@ int main(void)
 
 	removeListNode(&l, 234);
 	printList(l);
-
+	
 	return 0;
 }
