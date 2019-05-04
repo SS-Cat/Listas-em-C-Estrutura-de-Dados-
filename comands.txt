@@ -1,0 +1,11 @@
+// Comando para criar os .o atraves do codigo c
+λ gcc -c main.c super.c
+
+// Comando para gerar o executavel atraves dos .o
+λ gcc -o lista.exe main.o super.o
+
+// Executavel :)
+λ lista.exe
+
+// scalait orr
+λ gcc main.c funcoes.c -o lista.exe
