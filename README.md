@@ -1,1 +1,4 @@
-"# Listas-em-C-Estrutura-de-Dados-" 
+"# Rouba monte 'EDA'" 
+
+
+*λ* gcc -g ./\*.c ./Cards/\*.c -o main
