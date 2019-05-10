@@ -1,4 +1,7 @@
 "# Rouba monte 'EDA'" 
 
-
-*λ* gcc -g ./\*.c ./Cards/\*.c -o main
+Compile e rode o codigo
+```sh
+λ gcc -g ./\*.c ./Cards/\*.c -o main
+λ ./main
+```
