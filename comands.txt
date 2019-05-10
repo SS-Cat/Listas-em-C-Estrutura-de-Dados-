@@ -9,3 +9,6 @@
 
 // scalait orr
 λ gcc main.c funcoes.c -o lista.exe
+
+// M4 eh mior
+λ gcc -g ./*.c ./Cards/*.c -o main
