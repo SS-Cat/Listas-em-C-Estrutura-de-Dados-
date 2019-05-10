@@ -1,3 +1,6 @@
+#ifndef _LinkedList
+#define _LinkedList
+
 #include <stdbool.h>
 
 typedef struct node
@@ -23,3 +26,5 @@ Node *removeListNode(List *list, int key);
 void endLine();
 
 void printList(List l);
+
+#endif

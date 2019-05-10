@@ -23,7 +23,7 @@ bool initList(List *list)
 
 Node *createNode(int key)
 {
-	Node *newNode = (Node *)malloc(sizeof(int));
+	Node *newNode = (Node *)malloc(sizeof(Node));
 	newNode->key = key;
 	newNode->next = NULL;
 	return newNode;
