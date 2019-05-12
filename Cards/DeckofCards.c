@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "DeckofCards.h"
 #include "card.h"
 
@@ -26,7 +25,7 @@ bool initDeck(DeckOfCards *deck)
 					   "King"};
 
 	deck->numberOfCards = NUMBER_OF_CARDS;
-	for (int iterate = 0; iterate < NUMBER_OF_CARDS; iterate++)
+	for (int iterate = 0; iterate < deck->numberOfCards; iterate++)
 	{
 		Card carta;
 		int face = iterate % 13;
@@ -39,14 +38,22 @@ bool initDeck(DeckOfCards *deck)
 	}
 }
 
-// int main(int argc, char const *argv[])
-// {
-// 	DeckOfCards deck;
-// 	initDeck(&deck);
-// 	for (int i = 0; i < NUMBER_OF_CARDS; i++)
-// 	{
-// 		cardToString(deck.cards[i]);
-// 	}
+void shuffle(DeckOfCards *deck)
+{
+	srand(time(NULL));
+	for (int iterate = 0; iterate < deck->numberOfCards; iterate++)
+	{
+		int randomIndex = rand() % deck->numberOfCards;
+		Card temp = deck->cards[iterate];
+		deck->cards[iterate] = deck->cards[randomIndex];
+		deck->cards[randomIndex] = temp;
+	}
+}
 
-// 	return 0;
-// }
+void printDeck(DeckOfCards deck)
+{
+	for (int i = 0; i < deck.numberOfCards; i++)
+	{
+		printCard(deck.cards[i]);
+	}
+}

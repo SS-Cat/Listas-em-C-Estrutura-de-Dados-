@@ -3,9 +3,10 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
+#include <time.h>
 #include "card.h"
 
-typedef struct deck 
+typedef struct deck
 {
   int numberOfCards;
   Card cards[52];
@@ -14,7 +15,9 @@ typedef struct deck
 
 bool initDeck(DeckOfCards *deck);
 
-void suffle(DeckOfCards *deck);
+void shuffle(DeckOfCards *deck);
+
+void printDeck(DeckOfCards deck);
 
 DeckOfCards dealCard(DeckOfCards *deck);
 

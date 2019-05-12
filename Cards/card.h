@@ -8,6 +8,6 @@ typedef struct card
 	char *suit;
 } Card;
 
-void cardToString(Card card);
+void printCard(Card card);
 
 #endif

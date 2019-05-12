@@ -2,7 +2,7 @@
 #include <string.h>
 #include "card.h"
 
-void cardToString(Card card)
+void printCard(Card card)
 {
     printf("%s of %s\n", card.faceName, card.suit);
 }

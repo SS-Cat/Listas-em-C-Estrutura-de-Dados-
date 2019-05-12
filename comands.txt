@@ -12,3 +12,6 @@
 
 // M4 eh mior
 λ gcc -g ./*.c ./Cards/*.c -o main
+
+// clear
+λ rm main.exe *.o *.gth
