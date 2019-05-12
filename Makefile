@@ -1,2 +1,8 @@
+all: main.c Cards/card.c Cards/DeckofCards.c
+	gcc -g ./*.c ./Cards/*.c -o main
+
+run:
+	main.exe
+
 clean:
-	rm *.o *.gth
+	rm *.o
