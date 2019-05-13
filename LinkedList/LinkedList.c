@@ -1,18 +1,4 @@
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-
-typedef struct node
-{
-	int key;
-	struct node *next;
-} Node;
-
-typedef struct list
-{
-	Node *start;
-	int size;
-} List;
+#include "LinkedList.h"
 
 bool initList(List *list)
 {

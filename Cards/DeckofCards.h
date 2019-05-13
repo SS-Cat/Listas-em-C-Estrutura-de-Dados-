@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <time.h>
 #include "card.h"
 
@@ -10,15 +11,15 @@ typedef struct deck
 {
   int numberOfCards;
   Card cards[52];
-  // Stack* stack;
+  int top;
 } DeckOfCards;
 
-bool initDeck(DeckOfCards *deck);
+void initDeck(DeckOfCards *deck);
 
 void shuffle(DeckOfCards *deck);
 
-void printDeck(DeckOfCards deck);
+bool dealCard(DeckOfCards *deck, Card *card);
 
-DeckOfCards dealCard(DeckOfCards *deck);
+void printDeck(DeckOfCards deck);
 
 #endif

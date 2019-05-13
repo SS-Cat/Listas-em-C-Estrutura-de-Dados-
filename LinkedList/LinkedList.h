@@ -2,6 +2,8 @@
 #define _LinkedList
 
 #include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct node
 {
