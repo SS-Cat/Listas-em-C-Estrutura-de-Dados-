@@ -1,10 +1,15 @@
 #include <stdio.h>
 #include <string.h>
 #include "card.h"
+#include "../cores.h"
 
-#define WHT "\x1B[37m"
-#define BKBLU "\x1B[44m"
-#define RESET "\x1B[0m"
+CardNode *createCardNode(Card card)
+{
+    CardNode *newNode = (CardNode *)malloc(sizeof(CardNode));
+    newNode->card = card;
+    newNode->next = NULL;
+    return newNode;
+}
 
 void printCard(Card card)
 {
