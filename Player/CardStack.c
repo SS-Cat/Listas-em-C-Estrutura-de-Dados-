@@ -7,14 +7,6 @@ void initStack(CardStack *stack)
     stack->bottom = NULL;
 }
 
-CardNode *createCardNode(Card card)
-{
-    CardNode *newNode = (CardNode *)malloc(sizeof(CardNode));
-    newNode->card = card;
-    newNode->next = NULL;
-    return newNode;
-}
-
 bool pushCardNode(CardStack *stack, Card card)
 {
     CardNode *newNode = createCardNode(card);

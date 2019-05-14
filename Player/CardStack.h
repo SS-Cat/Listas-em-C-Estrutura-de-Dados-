@@ -5,12 +5,6 @@
 #include <stdlib.h>
 #include "../Cards/card.h"
 
-typedef struct node
-{
-    Card card;
-    struct node *next;
-} CardNode;
-
 typedef struct cardStack
 {
     CardNode *top;
@@ -19,8 +13,6 @@ typedef struct cardStack
 } CardStack;
 
 void initStack(CardStack *stack);
-
-CardNode *createCardNode(Card card);
 
 bool pushCardNode(CardStack *stack, Card card);
 

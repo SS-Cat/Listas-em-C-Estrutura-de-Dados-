@@ -1,12 +1,18 @@
+#ifndef _Player
+#define _Player
+
 #include "../Cards/card.h"
 #include "CardStack.h"
 
 typedef struct player
 {
-	CardStack *cardStack;
+	CardStack cardStack;
 	int handCount;
 	Card hand[4];
+	int id;
 } Player;
+
+void initPlayer(Player *player, int id);
 
 void printHand(Player player);
 
@@ -18,4 +24,4 @@ bool removeOfHand(Player *player, Card card);
 
 // void addToStack(Board board, Player player, int index1, int index2);
 
-void fillHand(Player player);
+#endif
