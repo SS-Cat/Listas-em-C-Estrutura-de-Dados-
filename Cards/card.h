@@ -10,4 +10,6 @@ typedef struct card
 
 void printCard(Card card);
 
+char *normalizeCardNumber(int CardNumber);
+
 #endif
