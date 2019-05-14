@@ -34,10 +34,12 @@ void initDeck(DeckOfCards *deck)
 	{
 		Card carta;
 		int face = iterate % 13;
+		int suit = iterate / 13;
 
 		carta.faceName = faces[face];
 		carta.faceNumber = face + 1;
-		carta.suit = suits[iterate / 13];
+		carta.suit = suits[suit];
+		carta.suitNumber = suit + 1;
 
 		deck->cards[iterate] = carta;
 	}
