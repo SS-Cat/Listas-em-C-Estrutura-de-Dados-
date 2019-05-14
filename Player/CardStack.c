@@ -1,6 +1,6 @@
 #include "CardStack.h"
 
-bool initStack(CardStack *stack)
+void initStack(CardStack *stack)
 {
     stack->size = 0;
     stack->top = NULL;
@@ -41,7 +41,7 @@ Card cardTop(CardStack stack)
     return stack.top->card;
 }
 
-bool cleanStack(CardStack *stack)
+void cleanStack(CardStack *stack)
 {
     CardNode *corrente = stack->top;
     initStack(stack);
@@ -53,7 +53,7 @@ bool cleanStack(CardStack *stack)
     }
 }
 
-bool mergeStacks(CardStack *stack1, CardStack *stack2)
+void mergeStacks(CardStack *stack1, CardStack *stack2)
 {
     CardStack stack = *stack2;
 

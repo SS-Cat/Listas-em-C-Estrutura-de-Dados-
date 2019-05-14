@@ -18,7 +18,7 @@ typedef struct cardStack
     int size;
 } CardStack;
 
-bool initStack(CardStack *stack);
+void initStack(CardStack *stack);
 
 CardNode *createCardNode(Card card);
 
@@ -26,8 +26,8 @@ bool pushCardNode(CardStack *stack, Card card);
 
 Card cardTop(CardStack stack);
 
-bool cleanStack(CardStack *stack);
+void cleanStack(CardStack *stack);
 
-bool mergeStacks(CardStack *stack1, CardStack *stack2);
+void mergeStacks(CardStack *stack1, CardStack *stack2);
 
 #endif
