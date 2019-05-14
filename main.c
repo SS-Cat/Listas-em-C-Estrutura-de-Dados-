@@ -5,6 +5,66 @@
 #include "Player/Player.h"
 #include "Board/Board.h"
 
+void initGame(DeckOfCards *deck, GameBoard *board, int quantidade);
+
+int quantidadeJogadores();
+
+bool fillHand(Player *player, DeckOfCards *deck);
+
+int continuaGame();
+
+int main(void)
+{
+	bool ingame = true, end = false;
+	DeckOfCards deck;
+	GameBoard board;
+	Card tempCard;
+	while (!end)
+	{
+		initDeck(&deck);
+		shuffle(&deck);
+
+		int quantidade = quantidadeJogadores();
+
+		initGame(&deck, &board, quantidade);
+
+		if (continuaGame() == 0)
+			end = true;
+	}
+	return 0;
+}
+
+void initGame(DeckOfCards *deck, GameBoard *board, int quantidade)
+{
+	Card tempCard;
+	initBoard(board, quantidade);
+	int QuantDeCartasParaJogadores = 4 * quantidade;
+	for (int i = 0; i < QuantDeCartasParaJogadores; i++)
+	{
+		dealCard(deck, &tempCard);
+		int contaParaTrocaAlternada = i % quantidade;
+		addToHand(&board->jogadores[contaParaTrocaAlternada], tempCard);
+	}
+	for (int i = 0; i < 6; i++)
+	{
+		dealCard(deck, &tempCard);
+		addListNode(board, tempCard);
+	}
+}
+
+int quantidadeJogadores()
+{
+	printf("Bem Vindo ao Roba Monte\nQuantos Jogadores?\nEntre um numero de 2 a 4: ");
+	int quantidade = -1;
+	scanf("%d", &quantidade);
+	while (quantidade < 2 || quantidade > 4)
+	{
+		printf("Numero invalido,\ndigite novamente: ");
+		scanf("%d", &quantidade);
+	}
+	return quantidade;
+}
+
 bool fillHand(Player *player, DeckOfCards *deck)
 {
 	Card card;
@@ -21,65 +81,10 @@ bool fillHand(Player *player, DeckOfCards *deck)
 	}
 }
 
-int main(void)
+int continuaGame()
 {
-	DeckOfCards deck;
-	initDeck(&deck);
-	shuffle(&deck);
-	printDeck(deck);
-
-	/* teste para monte
-	CardStack stack1;
-	CardStack stack2;
-	initStack(&stack1);
-	initStack(&stack2);
-	for (int i = 0; i < 10; i++)
-		pushCardNode(&stack1, deck.cards[i]);
-	for (int i = 0; i < 10; i++)
-		pushCardNode(&stack2, deck.cards[i + 11]);
-
-	mergeStacks(&stack1, &stack2);
-
-	printCard(stack1.bottom->card);
-	*/
-	/* teste para Jogador
-	Player jogador1;
-	jogador1.handCount = 0;
-	Card card;
-	dealCard(&deck, &card);
-	addToHand(&jogador1, card);
-	dealCard(&deck, &card);
-	addToHand(&jogador1, card);
-	dealCard(&deck, &card);
-	addToHand(&jogador1, card);
-	dealCard(&deck, &card);
-	addToHand(&jogador1, card);
-
-	printHand(jogador1);
-
-	removeOfHand(&jogador1, card);
-	removeOfHand(&jogador1, card);
-
-	printHand(jogador1);
-	*/
-	/*
-	* teste para o comando dealCard
-	for (int i = 0; i < deck.numberOfCards + 1; i++)
-	{
-		Card card;
-		dealCard(&deck, &card);
-		printCard(card);
-	}
-	*/
-	/*
-	* teste para vê se deck foi preenxido corretamente
-	for (int i = 0; i < deck.numberOfCards; i++)
-	{
-		if (i % 2 == 0)
-			printf(GRN BGYEL "%s of %s\n" RESET, deck.cards[i].faceName, deck.cards[i].suit);
-		else
-			printf(YEL BGGRN "%s of %s\n" RESET, deck.cards[i].faceName, deck.cards[i].suit);
-	}
-	*/
-	return 0;
+	int resposta;
+	printf("Deseja jogar novamente? ( 0 para responder nao ): ");
+	scanf("%d", &resposta);
+	return resposta;
 }
