@@ -1,34 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "Cards/DeckofCards.h"
-#include "Player/CardStack.h"
-#include "Player/Player.h"
-#include "Board/Board.h"
+// DeckOfCards deck;
+// initDeck(&deck);
+// shuffle(&deck);
 
-bool fillHand(Player *player, DeckOfCards *deck)
-{
-	Card card;
-	if (player->handCount > 0)
-		return false;
-
-	while (player->handCount < 4)
-	{
-		bool result = dealCard(deck, &card);
-		if (result == false)
-			return false;
-
-		addToHand(player, card);
-	}
-}
-
-int main(void)
-{
-	DeckOfCards deck;
-	initDeck(&deck);
-	shuffle(&deck);
-	printDeck(deck);
-
-	/* teste para monte
+/* teste para monte
 	CardStack stack1;
 	CardStack stack2;
 	initStack(&stack1);
@@ -42,7 +16,7 @@ int main(void)
 
 	printCard(stack1.bottom->card);
 	*/
-	/* teste para Jogador
+/* teste para Jogador
 	Player jogador1;
 	jogador1.handCount = 0;
 	Card card;
@@ -62,7 +36,7 @@ int main(void)
 
 	printHand(jogador1);
 	*/
-	/*
+/*
 	* teste para o comando dealCard
 	for (int i = 0; i < deck.numberOfCards + 1; i++)
 	{
@@ -71,7 +45,7 @@ int main(void)
 		printCard(card);
 	}
 	*/
-	/*
+/*
 	* teste para vê se deck foi preenxido corretamente
 	for (int i = 0; i < deck.numberOfCards; i++)
 	{
@@ -81,5 +55,3 @@ int main(void)
 			printf(YEL BGGRN "%s of %s\n" RESET, deck.cards[i].faceName, deck.cards[i].suit);
 	}
 	*/
-	return 0;
-}
