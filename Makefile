@@ -1,8 +1,10 @@
 all: main.c Cards/card.c Cards/DeckofCards.c
-	gcc -g ./*.c ./Cards/*.c ./Player/*.c -o main
+	gcc -g ./main.c ./Cards/*.c ./Player/*.c ./Board/*.c -o play
+
+start: all run
 
 run:
-	main.exe
+	play
 
-clean:
-	rm *.o
+clear:
+	rm *.o *.ghc play
