@@ -1,17 +1,10 @@
 #include "Board.h"
 
-bool initBoard(GameBoard *board, int quantJogadores)
+bool initBoard(GameBoard *board)
 {
 	board->start = NULL;
 	board->end = NULL;
 	board->size = 0;
-	for (int i = 0; i < quantJogadores; i++)
-	{
-		Player jogador;
-		initPlayer(&jogador, i);
-		board->jogadores[i] = jogador;
-	}
-
 	return true;
 }
 

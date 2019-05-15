@@ -5,17 +5,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../Cards/card.h"
-#include "../Player/Player.h"
 
 typedef struct gameBoard
 {
 	CardNode *start;
 	CardNode *end;
 	int size;
-	Player jogadores[];
 } GameBoard;
 
-bool initBoard(GameBoard *board, int quantJogadores);
+bool initBoard(GameBoard *board);
 
 bool addListNode(GameBoard *board, Card card);
 
