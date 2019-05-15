@@ -10,9 +10,10 @@ typedef struct player
 	int handCount;
 	Card hand[4];
 	int id;
+	char *nome;
 } Player;
 
-void initPlayer(Player *player, int id);
+void initPlayer(Player *player, int id, char *nome);
 
 void printHand(Player player);
 

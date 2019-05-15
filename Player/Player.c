@@ -1,12 +1,13 @@
 #include "Player.h"
 
-void initPlayer(Player *player, int id)
+void initPlayer(Player *player, int id, char *nome)
 {
 	CardStack stack;
 	initStack(&stack);
 	player->cardStack = stack;
 	player->handCount = 0;
 	player->id = id;
+	// player->nome = nome;
 }
 
 void printHand(Player player)

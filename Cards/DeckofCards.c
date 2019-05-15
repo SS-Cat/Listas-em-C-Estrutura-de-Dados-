@@ -61,7 +61,7 @@ bool dealCard(DeckOfCards *deck, Card *card)
 {
 	if (deck->top < 0)
 	{
-		printf(BGRED WHT "Acabou as cartas\n" RESET);
+		printf(BGRED WHT "Acabaram as cartas\n" RESET);
 		card = NULL;
 		return false;
 	}
