@@ -4,10 +4,13 @@
 #include "Player/CardStack.h"
 #include "Player/Player.h"
 #include "Board/Board.h"
+#include "Player/PlayerQueue.h"
 
-void initGame(DeckOfCards *deck, GameBoard *board, int quantidade);
+void initGame(DeckOfCards *deck, GameBoard *board, PlayersQueue *queue, int quantidade);
 
 int quantidadeJogadores();
+
+void createPlayers(PlayersQueue *queue, int quantJogadores);
 
 bool fillHand(Player *player, DeckOfCards *deck);
 
@@ -19,6 +22,7 @@ int main(void)
 	DeckOfCards deck;
 	GameBoard board;
 	Card tempCard;
+	PlayersQueue queue;
 	while (!end)
 	{
 		initDeck(&deck);
@@ -26,7 +30,7 @@ int main(void)
 
 		int quantidade = quantidadeJogadores();
 
-		initGame(&deck, &board, quantidade);
+		initGame(&deck, &board, &queue, quantidade);
 
 		if (continuaGame() == 0)
 			end = true;
@@ -34,16 +38,20 @@ int main(void)
 	return 0;
 }
 
-void initGame(DeckOfCards *deck, GameBoard *board, int quantidade)
+void initGame(DeckOfCards *deck, GameBoard *board, PlayersQueue *queue, int quantidade)
 {
+
 	Card tempCard;
-	initBoard(board, quantidade);
+	initBoard(board);
+	initPlayerQueue(queue, quantidade);
+	createPlayers(queue, quantidade);
+
 	int QuantDeCartasParaJogadores = 4 * quantidade;
 	for (int i = 0; i < QuantDeCartasParaJogadores; i++)
 	{
 		dealCard(deck, &tempCard);
 		int contaParaTrocaAlternada = i % quantidade;
-		addToHand(&board->jogadores[contaParaTrocaAlternada], tempCard);
+		addToHand(&queue->jogadores[contaParaTrocaAlternada], tempCard);
 	}
 	for (int i = 0; i < 6; i++)
 	{
@@ -63,6 +71,27 @@ int quantidadeJogadores()
 		scanf("%d", &quantidade);
 	}
 	return quantidade;
+}
+
+void createPlayers(PlayersQueue *queue, int quantJogadores)
+{
+	int JogadorInicial = rand() % quantJogadores;
+	for (int i = 0; i < quantJogadores; i++)
+	{
+		char nome[12];
+		printf("Digite o nome do jogador %d: ", i + 1);
+		scanf("%s", nome);
+		Player jogador;
+		jogador.nome = nome;
+		initPlayer(&jogador, i + 1, nome);
+		enqueue(queue, jogador);
+	}
+
+	while (JogadorInicial != 0)
+	{
+		nextPlayer(queue);
+		JogadorInicial--;
+	}
 }
 
 bool fillHand(Player *player, DeckOfCards *deck)
