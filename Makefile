@@ -4,7 +4,7 @@ all: main.c Cards/card.c Cards/DeckofCards.c
 start: all run
 
 run:
-	play
+	./play
 
 clear:
 	rm *.o *.ghc play
