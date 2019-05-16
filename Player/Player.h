@@ -13,7 +13,7 @@ typedef struct player
 	char *nome;
 } Player;
 
-void initPlayer(Player *player, int id, char *nome);
+void initPlayer(Player *player, int id);
 
 void printHand(Player player);
 

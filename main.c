@@ -89,7 +89,7 @@ void createPlayers(PlayersQueue *queue, int quantJogadores)
 		scanf("%s", nome);
 		Player jogador;
 		jogador.nome = nome;
-		initPlayer(&jogador, i + 1, nome);
+		initPlayer(&jogador, i + 1);
 		enqueue(queue, jogador);
 	}
 
