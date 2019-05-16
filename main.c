@@ -30,6 +30,12 @@ int main(void)
 
 		int quantidade = quantidadeJogadores();
 
+		// while (ingame)
+		// {
+			
+		// }
+		
+
 		initGame(&deck, &board, &queue, quantidade);
 
 		if (continuaGame() == 0)
@@ -78,8 +84,8 @@ void createPlayers(PlayersQueue *queue, int quantJogadores)
 	int JogadorInicial = rand() % quantJogadores;
 	for (int i = 0; i < quantJogadores; i++)
 	{
-		char nome[12];
-		printf("Digite o nome do jogador %d: ", i + 1);
+		char *nome = (char*)malloc(sizeof(char) * 10);
+		printf("Digite o nome do jogador %d (max 10 char): ", i + 1);
 		scanf("%s", nome);
 		Player jogador;
 		jogador.nome = nome;

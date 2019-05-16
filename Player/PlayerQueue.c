@@ -15,7 +15,7 @@ void enqueue(PlayersQueue *queue, Player jogador)
 
 void dequeue(PlayersQueue *queue, Player *jogador)
 {
-    jogador = &queue->jogadores[0];
+    *jogador = queue->jogadores[0];
     for (int i = 0; i < queue->end - 1; i++)
     {
         queue->jogadores[i] = queue->jogadores[i + 1];
