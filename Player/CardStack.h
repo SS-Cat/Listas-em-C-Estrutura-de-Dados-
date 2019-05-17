@@ -16,8 +16,6 @@ void initStack(CardStack *stack);
 
 bool pushCardNode(CardStack *stack, Card card);
 
-Card cardTop(CardStack stack);
-
 void cleanStack(CardStack *stack);
 
 void mergeStacks(CardStack *stack1, CardStack *stack2);

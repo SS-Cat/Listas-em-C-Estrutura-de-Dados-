@@ -28,21 +28,16 @@ bool pushCardNode(CardStack *stack, Card card)
     return true;
 }
 
-Card cardTop(CardStack stack)
-{
-    return stack.top->card;
-}
-
 void cleanStack(CardStack *stack)
 {
-    CardNode *corrente = stack->top;
-    initStack(stack);
+    CardNode *corrente = stack->bottom;
     while (corrente->next != NULL)
     {
         CardNode *clean = corrente;
         corrente = corrente->next;
         free(clean);
     }
+    initStack(stack);
 }
 
 void mergeStacks(CardStack *stack1, CardStack *stack2)

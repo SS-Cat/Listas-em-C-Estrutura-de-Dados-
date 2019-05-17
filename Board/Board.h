@@ -19,6 +19,10 @@ bool addListNode(GameBoard *board, Card card);
 
 Card *removeListNode(GameBoard *board, Card card);
 
+CardNode *pickIndex(GameBoard board, int index);
+
+bool searchCardBoard(GameBoard board, Card card);
+
 void printList(GameBoard board);
 
 void endLine();

@@ -3,6 +3,7 @@
 
 #include "../Cards/card.h"
 #include "CardStack.h"
+#include <stdio.h>
 
 typedef struct player
 {
@@ -19,10 +20,10 @@ void printHand(Player player);
 
 bool addToHand(Player *player, Card card);
 
-bool removeOfHand(Player *player, Card card);
+bool removeOfHand(Player *player, Card *card);
 
-// void handRemoveItem(Player player, Board board, int index);
+int searchCard(Player player, Card card);
 
-// void addToStack(Board board, Player player, int index1, int index2);
+Card cardTop(Player player);
 
 #endif

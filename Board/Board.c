@@ -36,9 +36,7 @@ Card *removeListNode(GameBoard *board, Card card)
 		return NULL;
 
 	CardNode *iterate = board->start, *slibling = NULL;
-	while (iterate != NULL &&
-		   iterate->card.faceNumber != card.faceNumber &&
-		   iterate->card.suitNumber != card.suitNumber)
+	while (iterate != NULL && iterate->card.faceNumber != card.faceNumber || iterate->card.suitNumber != card.suitNumber)
 	{
 		slibling = iterate;
 		iterate = iterate->next;
@@ -61,6 +59,31 @@ Card *removeListNode(GameBoard *board, Card card)
 	return &node_remove->card;
 }
 
+CardNode *pickIndex(GameBoard board, int index)
+{
+	CardNode *pick = board.start;
+	for (int i = 0; i < index - 1; i++)
+	{
+		pick = pick->next;
+	}
+	return pick;
+}
+
+bool searchCardBoard(GameBoard board, Card card)
+{
+	CardNode *search = board.start;
+	for (int i = 0; i < board.size; i++)
+	{
+		if (search->card.faceNumber == card.faceNumber && 
+		search->card.suitNumber == card.suitNumber)
+		{
+			return true;
+		}
+		search = search->next;
+	}
+	return false;
+}
+
 void endLine()
 {
 	printf("\n");
@@ -68,25 +91,15 @@ void endLine()
 
 void printList(GameBoard board)
 {
-	endLine();
-	printf("Printing List");
-	endLine();
-	printf("List size: %d", board.size);
-	endLine();
-	printf("Node Value | Index");
-	endLine();
-	int index = 0;
+	printf("Mesa:\n");
+	printf("*** *** *** *** *** ***\n");
 	CardNode *iterate = board.start;
-
-	while (iterate->next != NULL)
+	for (int i = 0; i < board.size; i++)
 	{
-		printf("Value:  %d/%d |  %d  ", iterate->card.faceNumber, iterate->card.suitNumber, index);
-		endLine();
-		index++;
+		printf("Selecione %d |", i + 1);
+		printCard(iterate->card);
 		iterate = iterate->next;
 	}
 
-	printf("Value:  %d/%d |  %d  ", iterate->card.faceNumber, iterate->card.suitNumber, index);
-	endLine();
-	printf("*** *** *** *** *** ***");
+	printf("*** *** *** *** *** ***\n");
 }
